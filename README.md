@@ -5,13 +5,14 @@ For the mathematics behind and algorithm explaination, I recomend to read this p
 
 ## Mathematical model
 ### dynamic model:
-$$R_{k+1}=R_k \exp_m(\omega_k+w_k),$$
+$$R_{k+1}=R_k \exp_m(\omega_k dt+w_k),$$
 where:
 - $R_k$ represents the rotation matrix at time step $k$, this rotation from body frame to the fixed frame ($R_B^N$).
 - $\exp_m$ refers to the exponential map, which maps elements from $\mathbb{R}^3$ to elements in the Lie algebra $SO(3)$.
 - $\omega_k$ denotes the angular velocity at time step $k$.
 - $w_k$ represents the process noise, assumed to follow a Gaussian distribution with a mean of zero and a covariance matrix $Q_k$.
-
+- $dt$ sampling time.
+  
 To gain a better understanding of the exponential map and the fundamentals related to Lie groups, I recommend reading: https://www.iri.upc.edu/files/scidoc/2089-A-micro-Lie-theory-for-state-estimation-in-robotics.pdf.
 ### output model (observation function):
 $$(V_k^{1B},V_k^{2B})=(R_k^T V_k^{1N}+v_k^1,R_k^T V_k^{2N}+v_k^2),$$
